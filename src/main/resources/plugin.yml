@@ -1,0 +1,5 @@
+name: DeathLocation
+main: fi.felixbade.DeathLocation.Main
+version: ${project.version}
+authors: [felixbade]
+description: Add the accident coordinates to the player death message
