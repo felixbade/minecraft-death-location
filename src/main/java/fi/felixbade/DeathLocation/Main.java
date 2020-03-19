@@ -11,6 +11,7 @@ public class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
+        this.saveDefaultConfig();
         Bukkit.getPluginManager().registerEvents(this, this);
     }
 
@@ -23,12 +24,8 @@ public class Main extends JavaPlugin implements Listener {
         int z = (int) deathLocation.getZ();
         String world = deathLocation.getWorld().getName();
 
-        if (world.equals("world")) {
-            world = "Overworld";
-        } else if (world.equals("world_nether")) {
-            world = "the Nether";
-        } else if (world.equals("world_the_end")) {
-            world = "the End";
+        if (this.getConfig().contains("world-names." + world)) {
+            world = this.getConfig().getString("world-names." + world);
         }
 
         String deathMessage = event.getDeathMessage();

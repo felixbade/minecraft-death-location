@@ -1,0 +1,4 @@
+world-names:
+    world: "the Overworld"
+    world_nether: "the Nether"
+    world_the_end: "the End"
