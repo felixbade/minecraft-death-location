@@ -9,22 +9,30 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin implements Listener {
 
-  @Override
-	public void onEnable() {
-    Bukkit.getPluginManager().registerEvents(this, this);
-  }
+    @Override
+    public void onEnable() {
+        Bukkit.getPluginManager().registerEvents(this, this);
+    }
 
-  @EventHandler
-	public void onJoin(PlayerDeathEvent event) {
-    Location deathLocation = event.getEntity().getLocation();
+    @EventHandler
+    public void onDeath(PlayerDeathEvent event) {
+        Location deathLocation = event.getEntity().getLocation();
 
-    int x = (int) deathLocation.getX();
-    int y = (int) deathLocation.getY();
-    int z = (int) deathLocation.getZ();
-    String world = deathLocation.getWorld().getName();
+        int x = (int) deathLocation.getX();
+        int y = (int) deathLocation.getY();
+        int z = (int) deathLocation.getZ();
+        String world = deathLocation.getWorld().getName();
 
-    String deathMessage = event.getDeathMessage();
-    deathMessage += " at " + x + " " + y + " " + z + " in " + world;
-    event.setDeathMessage(deathMessage);
-  }
+        if (world.equals("world")) {
+            world = "Overworld";
+        } else if (world.equals("world_nether")) {
+            world = "the Nether";
+        } else if (world.equals("world_the_end")) {
+            world = "the End";
+        }
+
+        String deathMessage = event.getDeathMessage();
+        deathMessage += " at " + x + ", " + y + ", " + z + " in " + world;
+        event.setDeathMessage(deathMessage);
+    }
 }
