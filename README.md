@@ -1,4 +1,6 @@
 # minecraft-death-location
+Download: https://www.spigotmc.org/resources/death-location.76247/
+
 A very simple Bukkit/Spigot plugin that shows the player's location in the death message. No permissions, no configuration.
 
 ![Screenshot of a death situation](screenshot.png)
