@@ -1,5 +1,7 @@
 # minecraft-death-location
-A Bukkit/Spigot plugin that shows player location in the death message
+A very simple Bukkit/Spigot plugin that shows the player location in the death message. No permissions, no configuration.
+
+![Screenshot of a death situation](screenshot.png)
 
 ## Building/installation
 - Get Maven (required only for building the jar file – not necessary on the Minecraft server)
